@@ -64,10 +64,12 @@ def libretranslate(text, target_language=TARGET_LANGUAGE, source_language=SOURCE
         logging.exception(f"Exception in libretranslate for text: {text}")
         return text
 
-def translate_dataframe(df, target_language=TARGET_LANGUAGE, api_key=API_KEY, source_language=SOURCE_LANGUAGE):
-    from config import TRANSLATOR
+def translate_dataframe(df, target_language=TARGET_LANGUAGE, api_key=API_KEY, source_language=SOURCE_LANGUAGE, translator_type=None):
+    if translator_type is None:
+        from config import TRANSLATOR
+        translator_type = TRANSLATOR
     translated_df = df.copy()
-    if TRANSLATOR.lower() == 'libre':
+    if translator_type.lower() == 'libre':
         for col in translated_df.columns:
             translated_df[col] = translated_df[col].astype(str).apply(
                 lambda x: libretranslate(x, target_language, source_language=source_language) if x.strip() else x
