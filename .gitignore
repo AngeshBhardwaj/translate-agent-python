@@ -58,8 +58,8 @@ coverage.xml
 .pyre/
 
 # Output and logs
-# output/
-# log/
+output/
+log/
 *.log
 
 # Excel files
