@@ -57,6 +57,10 @@ python main.py
 - For large files, be aware of API rate limits (especially for LibreTranslate public endpoints).
 - All logs and errors are saved in the `log/` directory for troubleshooting.
 
+## Future Enhancements
+
+- At some point this would use the Translation API that I'm working on. so that smaller translation requests could be served without any token from 3rd party API. I'll be using 'https://github.com/argosopentech/argos-translate' as a base model for translation support.
+
 ## License
 
 MIT License
